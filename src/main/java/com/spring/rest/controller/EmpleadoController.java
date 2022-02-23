@@ -35,10 +35,10 @@ public class EmpleadoController {
 	}
 	
 	@GetMapping("/empleados/{id}")
-	public Empleado empleadoXID(@PathVariable(name="id") Long id) {
+	public Empleado empleadoXID(@PathVariable(name="id") String dni) {
 		Empleado empleadoXID = new Empleado();
 		
-		empleadoXID = empleadoServiceImpl.empleadoXID(id);
+		empleadoXID = empleadoServiceImpl.empleadoXID(dni);
 		
 		System.out.println("Empleado XID: " + empleadoXID);
 		
@@ -46,18 +46,18 @@ public class EmpleadoController {
 	}
 	
 	@PutMapping("/empleados/{id}")
-	public Empleado actualizarEmpleado(@PathVariable(name="id")Long id, @RequestBody Empleado empleado) {
+	public Empleado actualizarEmpleado(@PathVariable(name="id")String dni, @RequestBody Empleado empleado) {
 		
 		Empleado empleado_seleccionado = new Empleado();
 		Empleado empleado_actualizado = new Empleado();
 		
-		empleado_seleccionado = empleadoServiceImpl.empleadoXID(id);
+		empleado_seleccionado = empleadoServiceImpl.empleadoXID(dni);
 		
 		empleado_seleccionado.setNombre(empleado.getNombre());
 		empleado_seleccionado.setApellidos(empleado.getApellidos());
 		empleado_seleccionado.setDepartamento(empleado.getDepartamento());
 		
-		empleado_actualizado = empleadoServiceImpl.actualizarEmpleado(empleado_actualizado);
+		empleado_actualizado = empleadoServiceImpl.actualizarEmpleado(empleado_seleccionado);
 		
 		System.out.println("El empleado actualizado es: " + empleado_actualizado);
 		
@@ -65,8 +65,8 @@ public class EmpleadoController {
 	}
 	
 	@DeleteMapping("/empleados/{id}")
-	public void eliminarEmpleado(@PathVariable(name="id") Long id) {
-		empleadoServiceImpl.eliminarEmpleado(id);
+	public void eliminarEmpleado(@PathVariable(name="id") String dni) {
+		empleadoServiceImpl.eliminarEmpleado(dni);
 	}
 	
 }

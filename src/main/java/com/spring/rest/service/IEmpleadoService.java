@@ -10,10 +10,10 @@ public interface IEmpleadoService {
 	
 	public Empleado guardarEmpleado(Empleado empleado);
 	
-	public Empleado empleadoXID(Long id);
+	public Empleado empleadoXID(String id);
 	
 	public Empleado actualizarEmpleado(Empleado empleado);
 	
-	public void eliminarEmpleado(Long id);
+	public void eliminarEmpleado(String id);
 	
 }

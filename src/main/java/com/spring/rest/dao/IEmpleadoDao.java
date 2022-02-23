@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.spring.rest.dto.Empleado;
 
-public interface IEmpleadoDao extends JpaRepository<Empleado, Long>{
+public interface IEmpleadoDao extends JpaRepository<Empleado, String>{
 
 }

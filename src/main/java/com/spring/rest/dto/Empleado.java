@@ -1,8 +1,6 @@
 package com.spring.rest.dto;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,8 +11,7 @@ import javax.persistence.Table;
 public class Empleado {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String dni;
 	
 	private String nombre;
 	private String apellidos;
@@ -27,19 +24,19 @@ public class Empleado {
 
 	}
 
-	public Empleado(Long id, String nombre, String apellidos, Departamento departamento) {
-		this.id = id;
+	public Empleado(String dni, String nombre, String apellidos, Departamento departamento) {
+		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.departamento = departamento;
 	}
 
-	public Long getId() {
-		return id;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getNombre() {
@@ -68,10 +65,8 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", departamento="
+		return "Empleado [dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", departamento="
 				+ departamento + "]";
 	}
-	
-	
 
 }

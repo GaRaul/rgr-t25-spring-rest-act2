@@ -19,29 +19,30 @@ public class Departamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	private String nombre;
 	private int presupuesto;
 	
 	@OneToMany
-	@JoinColumn(name="id")
+	@JoinColumn(name="dni")
 	private List<Empleado> empleado;
 	
 	public Departamento() {
 	}
 
-	public Departamento(Long id, String nombre, int presupuesto) {
+	public Departamento(long id, String nombre, int presupuesto, List<Empleado> empleado) {
 		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
+		this.empleado = empleado;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
